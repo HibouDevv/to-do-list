@@ -88,7 +88,7 @@ body {
     font-size: 1rem;
 }
 #lists-ul li.active {
-    background: #d0eaff;
+    background: #b8f5c2; /* Light green background for active list */
     font-weight: bold;
 }
 .list-delete-btn {
@@ -223,13 +223,17 @@ h1 {
     }
     body.dark .sidebar-header span {
         color: #fff !important; /* "Lists" text stays white */
+        position: relative;
+        z-index: 1;
+    }
+    body.dark #lists-ul li,
+    body.dark .sidebar-controls input,
+    body.dark .sidebar-controls button {
+        color: #111 !important;
     }
     body.dark .sidebar-controls button#create-list-btn {
         color: #111 !important; /* Create button text is black */
         background: var(--accent);
-    }
-    body.dark .sidebar-header span {
-        color: #fff !important; /* Make "Lists" text white in dark mode on mobile */
     }
 }
 #task-list {
