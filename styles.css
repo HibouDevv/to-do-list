@@ -1,0 +1,120 @@
+@font-face {
+    font-family: 'Comfortaa';
+    src: url(Fonts/Comfortaa-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: 'Montserrat';;
+    src: url(Fonts/Montserrat-VariableFont_wght.ttf);
+}
+
+body {
+    font-family: 'Comfortaa', 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #e0eafc, #cfdef3);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 500px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 32px 24px 24px 24px;
+}
+
+h1, h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    text-align: center;
+}
+
+#list-controls {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+#task-form {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+    justify-content: center;
+}
+
+#task-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #b0c4de;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+button {
+    font-family: 'Comfortaa', sans-serif;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #5cb85c;
+    color: white;
+    cursor: pointer;
+    font-size: 0.9rem; /* smaller text */
+    transition: background 0.2s;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+#task-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#task-list li {
+    background: #f9f9f9;
+    margin: 8px 0;
+    padding: 12px 16px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.2s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+
+#task-list li.completed {
+    text-decoration: line-through;
+    color: #999;
+    background: #e0e0e0;
+}
+
+.delete-btn {
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 0.85rem; /* smaller text for delete button */
+    margin-left: 10px;
+    transition: background 0.2s;
+}
+
+.delete-btn:hover {
+    background: #d93636;
+}
+
+.visually-hidden {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
