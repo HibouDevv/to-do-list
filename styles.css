@@ -222,10 +222,11 @@ h1 {
         color: #111 !important;
     }
     body.dark .sidebar-header span {
-        color: #fff !important; /* Keep "Lists" text white */
+        color: #fff !important; /* "Lists" text stays white */
     }
     body.dark .sidebar-controls button#create-list-btn {
-        color: #fff !important; /* Keep create button text white */
+        color: #111 !important; /* Create button text is black */
+        background: var(--accent);
     }
     body.dark .sidebar-header span {
         color: #fff !important; /* Make "Lists" text white in dark mode on mobile */
