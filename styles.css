@@ -217,14 +217,15 @@ h1 {
     .sidebar-controls button#create-list-btn:hover {
         background: #388e3c;
     }
-    body.dark .sidebar {
-        color: #111 !important; /* Make sidebar text black in dark mode on mobile */
-    }
-    body.dark #lists-ul li,
-    body.dark .sidebar-header,
-    body.dark .sidebar-controls input,
-    body.dark .sidebar-controls button {
+    body.dark .sidebar,
+    body.dark .sidebar * {
         color: #111 !important;
+    }
+    body.dark .sidebar-header span {
+        color: #fff !important; /* Keep "Lists" text white */
+    }
+    body.dark .sidebar-controls button#create-list-btn {
+        color: #fff !important; /* Keep create button text white */
     }
     body.dark .sidebar-header span {
         color: #fff !important; /* Make "Lists" text white in dark mode on mobile */
