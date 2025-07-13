@@ -18,20 +18,7 @@ to-do-list
 - Remove tasks from the list
 - Simple and clean user interface
 
-## Getting Started
-
-1. **Clone the repository** or download the files to your local machine.
-
-2. **Open `index.html`** in your web browser to view the application.
-
-3. **Add tasks** using the input field and click the "Add Task" button.
-
-4. **Remove tasks** by clicking on the delete button next to each task.
-
-## Usage
-
-- Type a task in the input field and click "Add Task" to add it to your list.
-- Click the delete button next to a task to remove it from the list.
+the site: https://hibou-to-do-list.vercel.app/
 
 ## License
 
