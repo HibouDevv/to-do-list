@@ -1,14 +1,16 @@
 // This file contains JavaScript code for client-side functionality related to the To-Do List application.
 
 document.addEventListener('DOMContentLoaded', () => {
-    const taskForm = document.getElementById('task-form');
-    const taskInput = document.getElementById('task-input');
-    const taskList = document.getElementById('task-list');
-    const listSelect = document.getElementById('list-select');
+    const listsUl = document.getElementById('lists-ul');
     const newListName = document.getElementById('new-list-name');
     const createListBtn = document.getElementById('create-list-btn');
     const currentListTitle = document.getElementById('current-list-title');
-    const deleteListBtn = document.getElementById('delete-list-btn');
+    const taskForm = document.getElementById('task-form');
+    const taskInput = document.getElementById('task-input');
+    const taskList = document.getElementById('task-list');
+    const sidebar = document.getElementById('sidebar');
+    const openSidebarBtn = document.getElementById('open-sidebar-btn');
+    const closeSidebarBtn = document.getElementById('close-sidebar-btn');
 
     let lists = JSON.parse(localStorage.getItem('lists')) || {};
     let currentList = localStorage.getItem('currentList') || null;
@@ -18,14 +20,48 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('currentList', currentList);
     }
 
-    function renderListOptions() {
-        listSelect.innerHTML = '';
+    function renderLists() {
+        listsUl.innerHTML = '';
         Object.keys(lists).forEach(listName => {
-            const option = document.createElement('option');
-            option.value = listName;
-            option.textContent = listName;
-            if (listName === currentList) option.selected = true;
-            listSelect.appendChild(option);
+            const li = document.createElement('li');
+            li.textContent = listName;
+            if (listName === currentList) li.classList.add('active');
+            li.addEventListener('click', () => {
+                currentList = listName;
+                saveLists();
+                renderLists();
+                renderTasks();
+                if (window.innerWidth <= 700) sidebar.classList.remove('open');
+            });
+
+            // Delete button with icon
+            const delBtn = document.createElement('button');
+            delBtn.className = 'list-delete-btn';
+            delBtn.title = `Delete "${listName}"`;
+            const delIcon = document.createElement('img');
+            delIcon.src = 'Images/delete black.svg';
+            delIcon.alt = 'Delete';
+            delBtn.appendChild(delIcon);
+
+            delBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (Object.keys(lists).length === 1) {
+                    alert("You must have at least one list.");
+                    return;
+                }
+                if (confirm(`Delete the list "${listName}" and all its tasks?`)) {
+                    delete lists[listName];
+                    // Switch to another list if possible
+                    const keys = Object.keys(lists);
+                    currentList = keys.length ? keys[0] : null;
+                    saveLists();
+                    renderLists();
+                    renderTasks();
+                }
+            });
+
+            li.appendChild(delBtn);
+            listsUl.appendChild(li);
         });
     }
 
@@ -64,13 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function switchList(listName) {
-        currentList = listName;
-        saveLists();
-        renderListOptions();
-        renderTasks();
-    }
-
     createListBtn.addEventListener('click', () => {
         const name = newListName.value.trim();
         if (!name || lists[name]) return;
@@ -78,12 +107,8 @@ document.addEventListener('DOMContentLoaded', () => {
         currentList = name;
         newListName.value = '';
         saveLists();
-        renderListOptions();
+        renderLists();
         renderTasks();
-    });
-
-    listSelect.addEventListener('change', (e) => {
-        switchList(e.target.value);
     });
 
     taskForm.addEventListener('submit', (e) => {
@@ -97,20 +122,12 @@ document.addEventListener('DOMContentLoaded', () => {
         renderTasks();
     });
 
-    deleteListBtn.addEventListener('click', () => {
-        if (!currentList) return;
-        if (Object.keys(lists).length === 1) {
-            alert("You must have at least one list.");
-            return;
-        }
-        if (confirm(`Delete the list "${currentList}" and all its tasks?`)) {
-            delete lists[currentList];
-            // Switch to another list if possible
-            currentList = Object.keys(lists)[0];
-            saveLists();
-            renderListOptions();
-            renderTasks();
-        }
+    // Sidebar open/close for mobile
+    openSidebarBtn.addEventListener('click', () => {
+        sidebar.classList.add('open');
+    });
+    closeSidebarBtn.addEventListener('click', () => {
+        sidebar.classList.remove('open');
     });
 
     // Initialize
@@ -119,6 +136,6 @@ document.addEventListener('DOMContentLoaded', () => {
         currentList = 'Default';
         saveLists();
     }
-    renderListOptions();
+    renderLists();
     renderTasks();
 });
