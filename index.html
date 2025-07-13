@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="Images/check-boxGREEN.svg">
     <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
     <div class="app-layout">
@@ -13,7 +14,7 @@
             <div class="sidebar-header">
                 <span>Lists</span>
                 <button id="close-sidebar-btn" class="sidebar-close-btn" aria-label="Close sidebar">
-                    <img src="Images/close black.svg" alt="Close" width="28" height="28">
+                    <img id="close-icon" src="Images/close black.svg" alt="Close" width="28" height="28">
                 </button>
             </div>
             <ul id="lists-ul"></ul>
@@ -24,7 +25,7 @@
         </aside>
         <div class="main-content">
             <button id="open-sidebar-btn" class="sidebar-menu-btn" aria-label="Open sidebar">
-                <img src="Images/menu black.svg" alt="Menu" width="28" height="28">
+                <img id="menu-icon" src="Images/menu black.svg" alt="Menu" width="28" height="28">
             </button>
             <div class="container">
                 <button id="dark-toggle" aria-label="Toggle dark mode">🌙</button>

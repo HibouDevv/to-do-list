@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     darkToggle.onclick = () => {
         document.body.classList.toggle('dark');
         darkToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+        updateSidebarIcons();
     };
 
     // --- Sidebar open/close for mobile ---
@@ -256,4 +257,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Initial Render ---
     renderLists();
     renderTasks();
+    updateSidebarIcons();
+});
+
+// Register service worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js');
+}
+
+function updateSidebarIcons() {
+    const isDark = document.body.classList.contains('dark');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+    if (menuIcon) menuIcon.src = isDark ? 'Images/menu white.svg' : 'Images/menu black.svg';
+    if (closeIcon) closeIcon.src = isDark ? 'Images/close white.svg' : 'Images/close black.svg';
+}
+
+// Call updateSidebarIcons() after toggling dark mode and on page load
+document.addEventListener('DOMContentLoaded', () => {
+    updateSidebarIcons();
 });

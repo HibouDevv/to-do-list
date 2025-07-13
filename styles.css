@@ -24,6 +24,7 @@ body.dark {
     --danger: #ff6b6b;
     --border: #444;
     --sidebar-bg: #23272f;
+    background: linear-gradient(120deg, #162447, #1f4068); /* navy blue gradient */
 }
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
@@ -56,6 +57,9 @@ body {
     padding: 18px 18px 8px 18px;
     font-weight: bold;
     font-size: 1.1rem;
+}
+.sidebar-header span {
+    color: #222; /* Default color for the "Lists" text */
 }
 .sidebar-close-btn {
     display: none;
@@ -120,6 +124,14 @@ body {
     margin-top: 4px;
     width: 100%;
 }
+.sidebar-controls button#create-list-btn {
+    background: var(--accent);
+    color: #fff;
+    border-radius: 8px; /* Rounded corners */
+}
+.sidebar-controls button#create-list-btn:hover {
+    background: #388e3c;
+}
 .sidebar-menu-btn {
     display: none;
     background: none;
@@ -179,17 +191,44 @@ h1 {
     font-size: 1rem;
 }
 #task-form button {
-    padding: 8px 12px;
+    padding: 12px 0;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px; /* Rounded corners for Add button */
     background: var(--accent);
     color: #fff;
     cursor: pointer;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     transition: background 0.2s;
+    width: 100%;           /* Make the button span the full width */
+    margin-top: 8px;       /* Add some space above the button */
+    align-self: stretch;   /* Ensure it stretches in flex layout */
 }
-#task-form button:hover {
-    background: #4cae4c;
+
+@media (max-width: 700px) {
+    #task-form button {
+        font-size: 1rem;
+        padding: 12px 0;
+        width: 100%;
+    }
+    .sidebar-controls button#create-list-btn {
+        background: var(--accent);
+        color: #fff;
+    }
+    .sidebar-controls button#create-list-btn:hover {
+        background: #388e3c;
+    }
+    body.dark .sidebar {
+        color: #111 !important; /* Make sidebar text black in dark mode on mobile */
+    }
+    body.dark #lists-ul li,
+    body.dark .sidebar-header,
+    body.dark .sidebar-controls input,
+    body.dark .sidebar-controls button {
+        color: #111 !important;
+    }
+    body.dark .sidebar-header span {
+        color: #fff !important; /* Make "Lists" text white in dark mode on mobile */
+    }
 }
 #task-list {
     list-style-type: none;
