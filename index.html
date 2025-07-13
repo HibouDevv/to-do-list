@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>To-Do List</title>
-    <meta name="description" content="A simple To-Do List application">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="Images/check-boxGREEN.svg">
     <link rel="stylesheet" href="styles.css">
@@ -29,12 +27,26 @@
                 <img src="Images/menu black.svg" alt="Menu" width="28" height="28">
             </button>
             <div class="container">
+                <button id="dark-toggle" aria-label="Toggle dark mode">🌙</button>
                 <h1 id="current-list-title"></h1>
-                <form id="task-form">
-                    <input type="text" id="task-input" placeholder="Add a new task" required>
-                    <button type="submit">Add Task</button>
+                <form id="task-form" autocomplete="off">
+                    <input type="text" id="task-input" placeholder="Add a new task" required aria-label="Task name">
+                    <input type="date" id="task-date" aria-label="Due date">
+                    <select id="task-priority" aria-label="Priority">
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                    <button type="submit">Add</button>
                 </form>
                 <ul id="task-list"></ul>
+                <div class="empty-state" id="empty-state" style="display:none;">No tasks yet. Add one above!</div>
+                <button class="export-btn" id="export-btn">Export Tasks</button>
+                <form id="import-form" style="margin-top:10px;">
+                    <label for="import-file">Import tasks from file:</label>
+                    <input type="file" id="import-file" accept=".json" title="Choose a JSON file to import">
+                    <button type="submit">Import</button>
+                </form>
             </div>
         </div>
     </div>
