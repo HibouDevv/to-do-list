@@ -222,14 +222,14 @@ h1 {
         color: #111 !important;
     }
     body.dark .sidebar-header span {
-        color: #fff !important; /* "Lists" text stays white */
+        color: #000 !important; /* "Lists" text stays white */
         position: relative;
         z-index: 1;
     }
     body.dark #lists-ul li,
     body.dark .sidebar-controls input,
     body.dark .sidebar-controls button {
-        color: #111 !important;
+        color: #000 !important;
     }
     body.dark .sidebar-controls button#create-list-btn {
         color: #111 !important; /* Create button text is black */
