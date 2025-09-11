@@ -269,7 +269,7 @@ function updateSidebarIcons() {
     const isDark = document.body.classList.contains('dark');
     const menuIcon = document.getElementById('menu-icon');
     const closeIcon = document.getElementById('close-icon');
-    if (menuIcon) menuIcon.src = isDark ? 'Images/menu white.svg' : 'Images/menu black.svg';
+    if (menuIcon) menuIcon.src = isDark ? 'Images/menu white1.svg' : 'Images/menu black.svg';
     if (closeIcon) closeIcon.src = isDark ? 'Images/close white.svg' : 'Images/close black.svg';
 }
 
