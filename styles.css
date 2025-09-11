@@ -222,7 +222,7 @@ h1 {
         color: #111 !important;
     }
     body.dark .sidebar-header span {
-        color: #000 !important; /* "Lists" text stays white */
+        color: #fff !important; /* "Lists" text stays white */
         position: relative;
         z-index: 1;
     }
