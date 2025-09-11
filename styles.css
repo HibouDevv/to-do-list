@@ -210,32 +210,33 @@ h1 {
         padding: 12px 0;
         width: 100%;
     }
-    .sidebar-controls button#create-list-btn {
-        background: var(--accent);
-        color: #fff;
-    }
-    .sidebar-controls button#create-list-btn:hover {
-        background: #388e3c;
-    }
-    body.dark .sidebar,
-    body.dark .sidebar * {
-        color: #111 !important;
-    }
-    body.dark .sidebar-header #list-header {
-        color: #fff !important; /* "Lists" text stays white */
-        position: relative;
-        z-index: 1;
-    }
-    body.dark #lists-ul li,
-    body.dark .sidebar-controls input,
-    body.dark .sidebar-controls button {
-        color: #000 !important;
-    }
-    body.dark .sidebar-controls button#create-list-btn {
-        color: #111 !important; /* Create button text is black */
-        background: var(--accent);
-    }
+.sidebar-controls button#create-list-btn {
+    background: var(--accent);
+    color: #fff;
 }
+.sidebar-controls button#create-list-btn:hover {
+    background: #388e3c;
+}
+    
+body.dark .sidebar,
+body.dark .sidebar * {
+    color: #f1f1f1 !important;
+}
+
+body.dark .sidebar-header span {
+    color: #f1f1f1 !important;
+}
+
+body.dark #lists-ul li {
+    color: #f1f1f1 !important;
+    background: #23272f !important;
+}
+
+body.dark #lists-ul li.active {
+    background: #388e3c !important;
+    color: #fff !important;
+}
+    
 #task-list {
     list-style-type: none;
     padding: 0;
