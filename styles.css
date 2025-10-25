@@ -79,7 +79,7 @@ body {
     font-size: 1rem;
 }
 #lists-ul li.active {
-    background: #2a5a2a; /* Dark green background for active list */
+    background: var(--accent); /* Using accent green for active list */
     font-weight: bold;
 }
 .list-delete-btn {
@@ -230,7 +230,7 @@ body.dark #lists-ul li {
 }
 
 body.dark #lists-ul li.active {
-    background: #388e3c !important;
+    background: var(--accent) !important;
     color: #fff !important;
 }
     
