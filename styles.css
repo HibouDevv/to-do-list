@@ -9,28 +9,19 @@
 }
 
 :root {
-    --main-bg: #fff;
-    --main-fg: #222;
-    --accent: #5cb85c;
-    --danger: #ff4d4d;
-    --border: #b0c4de;
-    --sidebar-bg: #f7f7f7;
-    --sidebar-width: 220px;
-}
-body.dark {
     --main-bg: #23272f;
     --main-fg: #f1f1f1;
     --accent: #4cae4c;
     --danger: #ff6b6b;
     --border: #444;
     --sidebar-bg: #23272f;
-    background: linear-gradient(120deg, #162447, #1f4068); /* navy blue gradient */
+    --sidebar-width: 220px;
 }
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(120deg, #e0eafc, #cfdef3);
+    background: linear-gradient(120deg, #162447, #1f4068); /* navy blue gradient */
     min-height: 100vh;
     color: var(--main-fg);
     background-color: var(--main-bg);
@@ -59,7 +50,7 @@ body {
     font-size: 1.1rem;
 }
 .sidebar-header span {
-    color: #222; /* Default color for the "Lists" text */
+    color: #f1f1f1; /* White color for the "Lists" text */
 }
 .sidebar-close-btn {
     display: none;
@@ -88,7 +79,7 @@ body {
     font-size: 1rem;
 }
 #lists-ul li.active {
-    background: #b8f5c2; /* Light green background for active list */
+    background: #2a5a2a; /* Dark green background for active list */
     font-weight: bold;
 }
 .list-delete-btn {
@@ -144,6 +135,11 @@ body {
     left: 12px;
     z-index: 30;
 }
+.sidebar-menu-btn img {
+    display: block;
+    width: 28px;
+    height: 28px;
+}
 .main-content {
     flex: 1 1 auto;
     display: flex;
@@ -153,11 +149,12 @@ body {
 .container {
     max-width: 500px;
     margin: 40px auto;
-    background: var(--main-bg);
+    background: rgba(35, 39, 47, 0.8);
     border-radius: 12px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
     padding: 32px 24px 24px 24px;
     width: 95vw;
+    border: 1px solid #444;
 }
 h1 {
     font-family: 'Montserrat', sans-serif;
@@ -243,7 +240,7 @@ body.dark #lists-ul li.active {
     margin: 0;
 }
 #task-list li {
-    background: #f9f9f9;
+    background: #2c3440;
     margin: 8px 0;
     padding: 12px 16px;
     border-radius: 6px;
@@ -251,13 +248,13 @@ body.dark #lists-ul li.active {
     align-items: center;
     justify-content: space-between;
     transition: background 0.2s, transform 0.2s;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
     animation: fadeIn 0.3s;
 }
 #task-list li.completed {
     text-decoration: line-through;
     color: #999;
-    background: #e0e0e0;
+    background: #1e2530;
 }
 .task-main {
     flex: 1;
@@ -267,7 +264,7 @@ body.dark #lists-ul li.active {
 }
 .task-meta {
     font-size: 0.85em;
-    color: #888;
+    color: #aaa;
     display: flex;
     gap: 10px;
 }

@@ -1,13 +1,9 @@
 // This file contains JavaScript code for client-side functionality related to the To-Do List application.
 
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Dark Mode ---
-    const darkToggle = document.getElementById('dark-toggle');
-    darkToggle.onclick = () => {
-        document.body.classList.toggle('dark');
-        darkToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
-        updateSidebarIcons();
-    };
+    // --- Always use dark mode ---
+    document.body.classList.add('dark');
+    updateSidebarIcons();
 
     // --- Sidebar open/close for mobile ---
     const sidebar = document.getElementById('sidebar');
